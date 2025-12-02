@@ -1,0 +1,38 @@
+# Unity generated
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+UserSettings/
+MemoryCaptures/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Visual Studio / Rider
+.vs/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+.idea/
+
+# Crashlytics / other generated
+.gradle/
+*.apk
+*.aab
+
+# Unity cache & local packages
+Packages/manifest.json
+# If using LocalPackages, do NOT ignore the folder itself but you can ignore cache files:
+# Add exceptions as needed.
+
+# Keep ProjectSettings and Assets and .meta files.
