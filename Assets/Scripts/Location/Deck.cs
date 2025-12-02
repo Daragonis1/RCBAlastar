@@ -2,6 +2,10 @@ using System.Collections.Generic;
 
 public class Deck : Location
 {
+    public Deck(PlayerController controller)
+    {
+        Initialize(LocationType.Deck, controller);
+    }
     public void Shuffle()
     {
         System.Random rng = new();

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-public enum ZoneType
+public enum LocationType
 {
     Deck,
     Hand,
@@ -8,20 +8,20 @@ public enum ZoneType
     Battlefield,
     Graveyard,
     Stack,
-    NonGame,
+    Show,
     Exile
 }
 
 public class Location
 {
-    public ZoneType ZoneType { get; protected set; }
+    public LocationType Type { get; protected set; }
     public PlayerController Controller { get; protected set; }
 
     protected readonly List<Card> cards = new();
 
-    public virtual void Initialize(ZoneType type, PlayerController controller)
+    public virtual void Initialize(LocationType type, PlayerController controller)
     {
-        ZoneType = type;
+        Type = type;
         Controller = controller;
     }
 

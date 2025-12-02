@@ -9,4 +9,10 @@ public class Card
         Data = data;
         InstanceId = System.Guid.NewGuid().ToString();
     }
+    public void Move(Location newLocation)
+    {
+        CurrentZone.RemoveCard(this);
+        newLocation.AddCard(this);
+        CurrentZone = newLocation;
+    }
 }
