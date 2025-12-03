@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 0944ccf1d8109fc4fad84a85c81b83af, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 7.5, y: 10.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &539533643756748026
@@ -135,12 +135,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab20f154e7204be4ea8f6a2bfa31725f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtName: {fileID: 7607869201253220585}
+  txtNameBig: {fileID: 7607869201253220585}
+  txtCostBig: {fileID: 794737251824403313}
+  txtAttackBig: {fileID: 1659929104628163333}
+  txtHealthBig: {fileID: 1424815676514659930}
+  txtNameShort: {fileID: 258428576830087468}
+  txtCostShort: {fileID: 1724853508501894921}
+  txtAttackShort: {fileID: 5783486067148752863}
+  txtHealthShort: {fileID: 5483293317516126356}
   txtType: {fileID: 8369945145974536090}
-  txtCost: {fileID: 794737251824403313}
-  txtAttack: {fileID: 1659929104628163333}
-  txtHealth: {fileID: 1424815676514659930}
   txtDescription: {fileID: 4753041800331066616}
+  Border: {fileID: 5202003371056123427}
+  Template: {fileID: 873944309814374883}
+  Illustration_Big: {fileID: 3840047849111356845}
+  Illustration_Short: {fileID: 1948655679718045037}
+  DamageType_Big: {fileID: 4941001730583318813}
+  DamageType_Short: {fileID: 3297762495183092759}
 --- !u!1 &779462019315829013
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +327,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: On play > This card deal 1 damage to 1 enemy unit.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
   m_sharedMaterial: {fileID: -1889951516919057006, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
@@ -451,7 +461,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Elven Archer
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
   m_sharedMaterial: {fileID: -1889951516919057006, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
@@ -585,7 +595,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
   m_sharedMaterial: {fileID: -1889951516919057006, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
@@ -612,7 +622,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.8
+  m_fontSize: 0.75
   m_fontSizeBase: 0.75
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -671,7 +681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8625733448717768443
 RectTransform:
   m_ObjectHideFlags: 0
@@ -719,7 +729,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Elven Archer
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
   m_sharedMaterial: {fileID: -1889951516919057006, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
@@ -805,7 +815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2771187421528090815
 RectTransform:
   m_ObjectHideFlags: 0
@@ -853,7 +863,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
   m_sharedMaterial: {fileID: -1889951516919057006, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
@@ -880,7 +890,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.8
+  m_fontSize: 0.75
   m_fontSizeBase: 0.75
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -939,7 +949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1068797255393574646
 RectTransform:
   m_ObjectHideFlags: 0
@@ -987,7 +997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
   m_sharedMaterial: {fileID: -1889951516919057006, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
@@ -1014,7 +1024,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.8
+  m_fontSize: 0.75
   m_fontSizeBase: 0.75
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1129,7 +1139,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: bab88faa961b11d4c905fbac726ce844, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1137,7 +1147,7 @@ SpriteRenderer:
   m_Size: {x: 7.5, y: 10.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6534945874071250406
@@ -1205,7 +1215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
   m_sharedMaterial: {fileID: -1889951516919057006, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
@@ -1232,7 +1242,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.8
+  m_fontSize: 0.75
   m_fontSizeBase: 0.75
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1290,7 +1300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8800556211449844529
 Transform:
   m_ObjectHideFlags: 0
@@ -1347,7 +1357,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bb7e6fa0c92db064ba1d7865626fef36, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1355,7 +1365,7 @@ SpriteRenderer:
   m_Size: {x: 7.07, y: 5.81}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6856988910183112986
@@ -1374,7 +1384,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4587445853113558135
 Transform:
   m_ObjectHideFlags: 0
@@ -1431,7 +1441,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 0944ccf1d8109fc4fad84a85c81b83af, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1439,7 +1449,7 @@ SpriteRenderer:
   m_Size: {x: 7.5, y: 10.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7283376102374411586
@@ -1515,7 +1525,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: b98cf125bcbaf8c48a07adae39360430, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1523,7 +1533,7 @@ SpriteRenderer:
   m_Size: {x: 7.5, y: 10.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7300496121248307321
@@ -1591,7 +1601,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
   m_sharedMaterial: {fileID: -1889951516919057006, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
@@ -1618,7 +1628,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.8
+  m_fontSize: 0.75
   m_fontSizeBase: 0.75
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1725,7 +1735,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Unit : Elven and Hunter'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
   m_sharedMaterial: {fileID: -1889951516919057006, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
@@ -1752,7 +1762,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.35
+  m_fontSize: 0.4
   m_fontSizeBase: 0.75
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1867,7 +1877,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bb7e6fa0c92db064ba1d7865626fef36, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1875,7 +1885,7 @@ SpriteRenderer:
   m_Size: {x: 7.07, y: 5.81}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8285299790331139210
@@ -1895,7 +1905,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4580300662983599344
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1943,7 +1953,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
   m_sharedMaterial: {fileID: -1889951516919057006, guid: 5918b80c4b9574d4490cbbc5eda84c0b, type: 2}
@@ -1970,7 +1980,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.8
+  m_fontSize: 0.75
   m_fontSizeBase: 0.75
   m_fontWeight: 400
   m_enableAutoSizing: 1
