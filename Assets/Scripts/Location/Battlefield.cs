@@ -1,7 +1,9 @@
 public class Battlefield : Location
 {
-    public Battlefield(PlayerController controller)
+    int BattlefieldId;
+    public Battlefield(PlayerController controller, int battlefieldId)
     {
         Initialize(LocationType.Battlefield, controller);
+        BattlefieldId = battlefieldId;
     }
 }
