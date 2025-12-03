@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum CardType
@@ -7,21 +8,14 @@ public enum CardType
     Hero
 }
 
-[CreateAssetMenu(menuName = "Game/Card", fileName = "Card_")]
+[CreateAssetMenu(menuName = "Card/New Card Data")]
 public class CardData : ScriptableObject
 {
-    [SerializeField] private string id;
-    [SerializeField] private string displayName;
-    [SerializeField] private int cost;
-    [SerializeField] private CardType type;
-
-    // Optionnel pour les unités
-    [Header("Unit Stats")]
-    public int hp;
+    public string cardName;
+    public CardType type;
+    public int cost;
     public int attack;
-
-    public string Id => id;
-    public string DisplayName => displayName;
-    public int Cost => cost;
-    public CardType Type => type;
+    public int health;
+    public string description;
+    public List<EffectData> effect;
 }

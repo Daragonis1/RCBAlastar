@@ -28,7 +28,6 @@ public class Location
     public virtual void AddCard(Card card)
     {
         cards.Add(card);
-        card.CurrentZone = this;
     }
 
     public virtual void RemoveCard(Card card)

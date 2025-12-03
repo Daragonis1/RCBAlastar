@@ -10,8 +10,6 @@ public class BattleManager : MonoBehaviour
     public PlayerController ActivePlayer { get; private set; }
     public PlayerController InactivePlayer => (ActivePlayer == Player1) ? Player2 : Player1;
 
-    private bool _battleEnded = false;
-
     private void Awake()
     {
         if (Instance != null)
@@ -106,6 +104,11 @@ public class BattleManager : MonoBehaviour
         Debug.Log($"[Main Phase] - {ActivePlayer.Name}");
         // Plus tard : actions, effets, combats
         // Pour l’instant : rien
+    }
+    private void PhaseFinishMain()
+    {
+        Debug.Log($"[Finish Main Phase] - {ActivePlayer.Name}");
+        // Actions de fin de phase plus tard
         PhaseEnd();
     }
 
@@ -138,6 +141,5 @@ public class BattleManager : MonoBehaviour
     private void EndBattle(PlayerController winner)
     {
         Debug.Log($"La bataille est terminée ! Vainqueur : {winner.Name}");
-        _battleEnded = true;
     }
 }
