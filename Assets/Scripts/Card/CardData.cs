@@ -5,7 +5,8 @@ public enum CardType
 {
     Unit,
     Spell,
-    Hero
+    Hero,
+    Battlefield
 }
 
 [CreateAssetMenu(menuName = "Card/New Card Data")]

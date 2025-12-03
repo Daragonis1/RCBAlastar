@@ -30,10 +30,10 @@ public class CardObject : MonoBehaviour
     public bool IsShort { get; private set; }
     public Card RelatedCard { get; private set; }
 
-    public void Init(Card card, bool isShort)
+    public void Init(Card card)
     {
         RelatedCard = card;
-        IsShort = isShort;
+        IsShort = false;
 
         RefreshUI();
     }

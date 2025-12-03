@@ -7,15 +7,14 @@ public class CardDatabaseLoader : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("Chargement de la base de données des cartes…");
         var loadedCards = Resources.LoadAll<CardData>("Cards").ToList();
 
         // Add new CardData
         foreach (var card in loadedCards)
         {
-            Debug.Log("Chargée : " + card.cardName);
             if (!database.cards.Contains(card))
             {
+                Debug.Log("Add : " + card.cardName + " to Card Database");
                 database.cards.Add(card);
             }
         }
