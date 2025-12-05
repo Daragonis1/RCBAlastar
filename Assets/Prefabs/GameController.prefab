@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5385847949832212070}
   - component: {fileID: 110399551954191425}
   - component: {fileID: 329093587590947541}
+  - component: {fileID: 8134969047507003811}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -73,3 +74,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   database: {fileID: 11400000, guid: bdf571b7db9c8734da21edce176f6f92, type: 2}
+--- !u!114 &8134969047507003811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908949264807997573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891d578e835157f45be05105eaf04942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIndex: 1
+  locationType: 1
+  cardObjectPrefab: {fileID: 539533643756748026, guid: a0513c012ed53da45b842ad195be0029, type: 3}
+  container: {fileID: 8815359258454552638}
+  cardWidth: 1
+  spacing: 0.2
+  baseScale: 0.9
+  leftAligned: 1

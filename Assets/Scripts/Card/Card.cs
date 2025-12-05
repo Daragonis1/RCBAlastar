@@ -36,11 +36,20 @@ public class Card
             Effects.Add(effectData.CreateEffect(this));
         }
     }
+
+    // Méthode utilisée par Location pour synchroniser le modèle
+    internal void SetPosition(Location loc)
+    {
+        Position = loc;
+    }
     public void Move(Location newLocation)
     {
-        Position.RemoveCard(this);
+        // defensive: s'il y a une position actuelle, on la notifie
+        if (Position != null)
+        {
+            Position.RemoveCard(this);
+        }
         newLocation.AddCard(this);
-        Position = newLocation;
     }
 
     public void Damage(int amount)

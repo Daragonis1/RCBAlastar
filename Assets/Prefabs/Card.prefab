@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab20f154e7204be4ea8f6a2bfa31725f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textCanvas: {fileID: 3445102473348391103}
   txtNameBig: {fileID: 7607869201253220585}
   txtCostBig: {fileID: 794737251824403313}
   txtAttackBig: {fileID: 1659929104628163333}
@@ -151,6 +152,11 @@ MonoBehaviour:
   Illustration_Short: {fileID: 1948655679718045037}
   DamageType_Big: {fileID: 4941001730583318813}
   DamageType_Short: {fileID: 3297762495183092759}
+  templateOrder: 1
+  artworkOrder: 0
+  textOrder: 2
+  borderOrder: 4
+  damagetypeOrder: 3
 --- !u!1 &779462019315829013
 GameObject:
   m_ObjectHideFlags: 0

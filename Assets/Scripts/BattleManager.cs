@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+using System;
 using UnityEngine;
 
 public class BattleManager : MonoBehaviour
@@ -9,13 +9,9 @@ public class BattleManager : MonoBehaviour
     public PlayerController Player2 { get; private set; }
     public PlayerController ActivePlayer { get; private set; }
     public PlayerController InactivePlayer => (ActivePlayer == Player1) ? Player2 : Player1;
-
-    // ----- Added for test card generation -----
-    // Drag a CardDatabase asset here in the inspector (optional: used to lookup by name)
     public CardDatabase cardDatabase;
-    // Optional prefab containing a CardObject component to visualise the generated card
     public GameObject cardObjectPrefab;
-    // ------------------------------------------
+    public event Action OnBattleStarted;
 
     private void Awake()
     {
@@ -32,20 +28,14 @@ public class BattleManager : MonoBehaviour
         StartBattle();
     }
 
-    /// <summary>
-    /// Initialise une nouvelle bataille.
-    /// </summary>
     public void StartBattle()
     {
-        Debug.Log("Initialisation de la bataille…");
-
         CreatePlayers();
         SetupPlayersDecks();
         GiveStartingHand();
         GiveInitialMana();
-
-        ActivePlayer = Player1; // Pour l’instant Player 1 commence
-
+        ActivePlayer = Player1;
+        OnBattleStarted?.Invoke();
         PhaseBegin();
     }
 
@@ -64,21 +54,29 @@ public class BattleManager : MonoBehaviour
 
     private void SetupPlayersDecks()
     {
-        // ❗ A remplacer plus tard par une construction de deck réelle
-        //Player1.Deck.FillWithDebugCards();
-        //Player2.Deck.FillWithDebugCards();
+        for (int i = 0; i < 15; i++)
+        {
+            Card newCard = CreateCardByName("Elven Archer");
+            if (newCard != null)
+                Player1.Deck.AddCard(newCard);
+        }
+        Debug.Log("Nombre de carte dans deck Player 1 : " + Player1.Deck.Cards.Count);
 
+        // Mélange du deck
         Player1.Deck.Shuffle();
-        Player2.Deck.Shuffle();
     }
 
     private void GiveStartingHand()
     {
-        for (int i = 0; i < 5; i++)
+        Debug.Log("Pioche de la main initiale du Player 1...");
+
+        var drawn = Player1.Deck.Draw(8);
+
+        foreach (var card in drawn)
         {
-            Player1.DrawCard();
-            Player2.DrawCard();
+            Player1.Hand.AddCard(card);
         }
+        Debug.Log("Cartes dans la main du Player 1 : " + Player1.Hand.Cards.Count);
     }
 
     private void GiveInitialMana()
@@ -93,7 +91,6 @@ public class BattleManager : MonoBehaviour
 
     private void PhaseBegin()
     {
-        Debug.Log($"[Beginning Phase] - {ActivePlayer.Name}");
         // Untap / Ready all cards
         ActivePlayer.UntapAll();
         PhaseDraw();
@@ -101,28 +98,24 @@ public class BattleManager : MonoBehaviour
 
     private void PhaseDraw()
     {
-        Debug.Log($"[Draw Phase] - {ActivePlayer.Name}");
         ActivePlayer.DrawCard();
         PhaseMain();
     }
 
     private void PhaseMain()
     {
-        Debug.Log($"[Main Phase] - {ActivePlayer.Name}");
         // Plus tard : actions, effets, combats
         // Pour l’instant : rien
         //SpawnTestCard("Elven Archer");
     }
     private void PhaseFinishMain()
     {
-        Debug.Log($"[Finish Main Phase] - {ActivePlayer.Name}");
         // Actions de fin de phase plus tard
         PhaseEnd();
     }
 
     private void PhaseEnd()
     {
-        Debug.Log($"[End Phase] - {ActivePlayer.Name}");
         // Actions de fin de tour plus tard
         SwitchActivePlayer();
         PhaseBegin();
@@ -150,68 +143,17 @@ public class BattleManager : MonoBehaviour
     {
         Debug.Log($"La bataille est terminée ! Vainqueur : {winner.Name}");
     }
-
-    /// <summary>
-    /// Génère une carte pour tests :
-    /// - récupère les CardData (par nom si fourni, sinon carte aléatoire si cardDatabase set)
-    /// - construit l'objet Card
-    /// - (optionnel) l'ajoute à la Location fournie
-    /// - (optionnel) instancie cardObjectPrefab et initialise son UI via CardObject.Init
-    /// </summary>
-    public Card SpawnTestCard(string cardName = null, Location targetLocation = null)
+    private Card CreateCardByName(string cardName)
     {
-        CardData data = null;
-
-        if (!string.IsNullOrEmpty(cardName))
-        {
-            if (cardDatabase != null)
-                data = cardDatabase.GetCardByName(cardName);
-            if (data == null)
-                Debug.LogWarning($"SpawnTestCard: card '{cardName}' not found in cardDatabase.");
-        }
-
-        if (data == null && cardDatabase != null)
-        {
-            data = cardDatabase.GetRandomCard();
-        }
-
+        Debug.Log($"Création de la carte '{cardName}'...");
+        var data = cardDatabase.GetCardByName(cardName);
         if (data == null)
         {
-            Debug.LogError("SpawnTestCard: No CardData available (no cardDatabase set or empty).");
+            Debug.LogError($"Card '{cardName}' not found in CardDatabase.");
             return null;
         }
 
-        var card = new Card(data);
-
-        // Try to place in target location (Location.AddCard expected in project)
-        if (targetLocation != null)
-        {
-            try
-            {
-                targetLocation.AddCard(card);
-            }
-            catch (System.Exception ex)
-            {
-                Debug.LogWarning($"SpawnTestCard: failed to add card to location: {ex.Message}");
-            }
-        }
-
-        // Instantiate visual if prefab assigned
-        if (cardObjectPrefab != null)
-        {
-            var go = Instantiate(cardObjectPrefab);
-            var cardObj = go.GetComponent<CardObject>();
-            if (cardObj != null)
-            {
-                cardObj.Init(card);
-            }
-            else
-            {
-                Debug.LogWarning("SpawnTestCard: cardObjectPrefab has no CardObject component.");
-            }
-        }
-
-        Debug.Log($"SpawnTestCard: generated '{card.Name}' (Type: {card.Type})");
-        return card;
+        return new Card(data);
     }
+
 }

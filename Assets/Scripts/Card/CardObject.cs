@@ -3,6 +3,7 @@ using TMPro;
 
 public class CardObject : MonoBehaviour
 {
+    public Canvas textCanvas;
     [Header("Textes BIG")]
     public TextMeshProUGUI txtNameBig;
     public TextMeshProUGUI txtCostBig;
@@ -29,15 +30,30 @@ public class CardObject : MonoBehaviour
 
     public bool IsShort { get; private set; }
     public Card RelatedCard { get; private set; }
+    [Header("Internal layers order")]
+    public int templateOrder = 1;
+    public int artworkOrder = 0;
+    public int textOrder = 2;
+    public int borderOrder = 4;
+    public int damagetypeOrder = 3;
 
-    public void Init(Card card)
+    public void Init(Card card, int baseSortingOrder = 0)
     {
         RelatedCard = card;
         IsShort = false;
-
+        ApplyLocalSorting(baseSortingOrder);
         RefreshUI();
     }
-
+    public void ApplyLocalSorting(int baseOrder)
+    {
+        Border.sortingOrder = baseOrder + borderOrder;
+        Template.sortingOrder = baseOrder + templateOrder;
+        Illustration_Big.sortingOrder = baseOrder + artworkOrder;
+        Illustration_Short.sortingOrder = baseOrder + artworkOrder;
+        DamageType_Big.sortingOrder = baseOrder + damagetypeOrder;
+        DamageType_Short.sortingOrder = baseOrder + damagetypeOrder;
+        textCanvas.sortingOrder = baseOrder + textOrder;
+    }
     public void RefreshUI()
     {
         if (IsShort)
@@ -98,13 +114,10 @@ public class CardObject : MonoBehaviour
     private void SetupShortSprites()
     {
         // BORDER
-        Border.sprite = LoadSprite("UI/Card/Border_Short");
+        Border.sprite = LoadSprite("UI/Card/Border_UltraShort");
 
         // TEMPLATE
-        if (RelatedCard.Type == CardType.Unit)
-            Template.sprite = LoadSprite("UI/Card/AllyNeutral_Short");
-        else
-            Template.sprite = null; // Spell/Hero n'ont pas de version short
+        Template.sprite = LoadSprite("UI/Card/AllyNeutral_UltraShort");
 
         // Illustration : short only when IsShort, big cleared
         Illustration_Short.sprite = LoadCardIllustration();
